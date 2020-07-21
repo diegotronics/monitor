@@ -1,0 +1,42 @@
+{% extends "citizen/layout.html" %}
+{% load static %}
+
+{% block title %}Citizen Monitor{% endblock %}
+
+{% block css %}
+<link href="{% static 'citizen/css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div class="row justify-content-center bg-gradient-light sm-shadow">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="{% url 'index' %}">
+    <img src="{% static 'citizen/img/logo.png' %}" width="300" alt="Citizen Monitor">
+  </a>
+</div>
+<div class="container w-100 h-100">
+  <div class="row align-items-center justify-content-center h-100">
+    <div class="col-lg-4">
+      <div class="card shadow mb-4">
+        <div class="card-body text-center">
+          <p>See all the information collected from each citizen regarding the state of the community's water supply</p>
+          <a href="{% url 'dashboard' %}" class="btn btn-primary">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card shadow mb-4">
+        <div class="card-body text-center">
+          <p>Would you like to help us have more information about the state of the water supply in our community?</p>
+          <a href="{% url 'survey' %}" class="btn btn-primary"><i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Survey</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

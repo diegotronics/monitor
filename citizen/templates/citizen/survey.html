@@ -1,0 +1,145 @@
+{% extends "citizen/layout.html" %}
+{% load static %}
+
+{% block title %}Survey | Citizen Monitor{% endblock %}
+{% block nav %}
+{% endblock %}
+
+{% block bodyclass %}class="bg-gradient-primary"{% endblock %}
+
+{% block body %}
+<div class="container">
+
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class=>
+        <a class="btn btn-light rounded-circle mt-2 border-0" href="{% url 'dashboard' %}"><i class="fas fa-chevron-left"></i></a>
+      </div>
+      <div class="card o-hidden border-0 shadow-lg mt-2 mb-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-survey-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <div id="logo" class="text-center">
+                    <a href="{% url 'index' %}">
+                      <img src="{% static 'citizen/img/logo.png' %}" width="200" alt="Citizen Monitor">
+                    </a>
+                  </div>
+                  <h1 class="h4 text-gray-900 mb-2">Survey</h1>
+                  <p class="mb-4">Please try to answer as accurately as you can</p>
+                </div>
+                <form class="user needs-validation" id="survey">
+                  {% csrf_token %}
+                  {% if error %}
+                  <div class="alert alert-danger alert-dismissible" role="alert">{{error}}<button type="button" class="close" data-dismiss="alert"
+                      aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button></div>
+                  {% endif %}
+                  <div>
+                    <h6><strong>Approximate water supply time this week in hours</strong></h6>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="supply_time" id="range0" value="0" required>
+                      <label class="form-check-label" for="range0">
+                        Less than 6 hours this week
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="supply_time" id="range1" value="1" required>
+                      <label class="form-check-label" for="range1">
+                        More than 6 hours but less than 24 hours this week
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="supply_time" id="range2" value="2" required>
+                      <label class="form-check-label" for="range2">
+                        More than 24 hours this week
+                      </label>
+                      <div class="invalid-feedback">please choose an option</div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div>
+                    <h6><strong>Did you get any tankers this week?</strong></h6>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="tanker" id="no" value="0" required>
+                      <label class="form-check-label" for="no">
+                        No
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="tanker" id="yes" value="1" required>
+                      <label class="form-check-label" for="yes">
+                        Yes
+                      </label>
+                      <div class="invalid-feedback">please choose an option</div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="form-group">
+                    <label for="comment"><strong>Additional comments (optional)</strong></label>
+                    <textarea class="form-control" maxlength="240" name="comment" id="comment" rows="2"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-user btn-block">Submit</button>
+                  </div>
+                </form>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Success modal -->
+<div class="modal fade show" id="SuccessModal" tabindex="-1" role="dialog" aria-labelledby="SuccessModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center py-8">
+          <br>
+          <h5 class="text-success">Successfully submitted survey</h5><br><br>
+          <a class="btn btn-primary" href="{% url 'dashboard' %}">Go to dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- error modal -->
+<div class="modal fade show" id="ErrorModal" tabindex="-1" role="dialog" aria-labelledby="ErrorModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center text-danger py-8"><br>
+          <h5>Oops, something went wrong! Try again</span>
+            <h5><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'citizen/js/survey.js' %}"></script>
+{% endblock %}

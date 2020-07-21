@@ -1,0 +1,26 @@
+html,body{
+  height:100%;
+}
+
+.info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+.info h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
+
+.c-1{
+  color: rgb(190, 30, 30);
+}
+.c-2{
+  color: rgb(228, 194, 44);
+}
+.c-3{
+  color: rgb(29, 165, 52);
+}
