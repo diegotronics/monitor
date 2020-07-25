@@ -41,11 +41,6 @@
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          Profile
-        </a>
-        <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
           Logout
@@ -278,7 +273,7 @@
                           </h6>
                           <div id="content-{{ survey.id }}" class="p-2">{{survey.comment}}</div>
 
-                          <div >
+                          <div>
                             {% if user.is_authenticated %}
                             <a class="like" href="#"><i id="liked-{{ survey.id }}"
                                 class="fa fa-thumbs-up {% if survey.likes.liked %}text-primary{% else %}text-dark{% endif %}"></i></a>
@@ -287,7 +282,7 @@
                             {% endif %}
                             <span id="count-{{ survey.id }}">{{ survey.likes.count }}</span>
                             <div class="float-right row">
-                              <i class="mx-1 fa fa-map-marker-alt" data-toggle="tooltip" data-placement="top" title="{{survey.area}}"></i>
+                              <small class="mx-1">{{survey.area}}</small>
                               <i class="mx-1 fa fa-faucet c-{{survey.supply}}"></i>
                               <i class="mx-1 fa fa-hand-holding-water t-{{survey.tanker}}"></i>
                             </div>
