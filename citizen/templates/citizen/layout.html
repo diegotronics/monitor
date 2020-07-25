@@ -26,52 +26,6 @@
 </head>
 
 <body {% block bodyclass %} {% endblock %}>
-    {% block nav %}
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'index' %}">
-                <img src="{% static 'citizen/img/logo.png' %}" width="150" alt="Citizen Monitor">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav align-items-center mr-auto">
-                    <li class="nav-item">
-                        <span class="invisible"><i></i></span>
-                    </li>
-                </ul>
-                {% if user.is_authenticated %}
-                <ul class="navbar-nav float-right">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{user.first_name}}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="settingsDropdown">
-                            <a class="dropdown-item" href="#">Profile</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-                        </div>
-                    </li>
-
-                </ul>
-                {% else %}
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-                    </li>
-                </ul>
-                {% endif %}
-            </div>
-        </div>
-
-    </nav> -->
-    {% endblock %}
 
     {% block body %}
     {% endblock %}
