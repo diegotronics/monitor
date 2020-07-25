@@ -2,7 +2,7 @@
 After=syslog.target
 [Service]Type=simple
 WorkingDirectory=/home/diego
-ExecStart=/usr/bin/python /home/diego/monitor/manage.py 0.0.0.0:80
+ExecStart=/usr/bin/python /home/diego/monitor/manage.py runserver 0.0.0.0:80
 StandardOutput=syslog
 StandardError=syslog
 [Install]WantedBy=multi-user.target
