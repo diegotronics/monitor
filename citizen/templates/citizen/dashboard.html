@@ -36,7 +36,8 @@
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <span class="mr-2 d-none d-lg-inline text-gray-600">{{user.first_name}} {{user.last_name}}</span>
+        <span class="mr-2 d-lg-inline text-gray-600">{{user.first_name}} <span
+            class="d-none d-sm-inline">{{user.last_name}}</span></span>
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -52,11 +53,11 @@
       </div>
     </li>
     {% else %}
-    <li class="nav-item">
+    <li class="d-none d-sm-inline nav-item">
       <a class="nav-link" href="{% url 'login' %}"><span class="text-gray-600">Login</span></a>
     </li>
-    <div class="form-inline my-2 my-lg-0">
-      <a href="{% url 'signup' %}" class="btn btn-primary shadow-sm my-2 my-sm-0">Sign Up</a>
+    <div class=" form-inline my-2 my-lg-0">
+      <a href="{% url 'signup' %}" class="d-none d-sm-inline btn btn-primary shadow-sm my-2 my-sm-0">Sign Up</a>
     </div>
     {% endif %}
 
@@ -86,48 +87,32 @@
         <i class="fas fa-fw fa-clipboard-list"></i>
         <span>Survey</span></a>
     </li>
-
+    {% if user.is_authenticated %}
+    {% else %}
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    <hr class="d-block d-sm-none sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
-      Interface
+    <div class="d-block d-sm-none sidebar-heading">
+      Site
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-        aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>Components</span>
+    <!-- Nav Item -Login -->
+    <li class="nav-item d-block d-sm-none">
+      <a class="nav-link" href="{% url 'login' %}" aria-expanded="true">
+        <i class="fas fa-fw fa-sign-in-alt"></i>
+        <span>Login</span>
       </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Custom Components:</h6>
-          <a class="collapse-item" href="buttons.html">Buttons</a>
-          <a class="collapse-item" href="cards.html">Cards</a>
-        </div>
-      </div>
     </li>
+    <!-- Nav Item - Signup -->
+    <li class="nav-item d-block d-sm-none">
+      <a class="nav-link" href="{% url 'signup' %}" aria-expanded="true">
+        <i class="fas fa-fw fa-user-plus"></i>
+        <span>Sign Up</span>
+      </a>
+    </li>
+    {% endif %}
 
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-        aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-fw fa-wrench"></i>
-        <span>Utilities</span>
-      </a>
-      <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Custom Utilities:</h6>
-          <a class="collapse-item" href="utilities-color.html">Colors</a>
-          <a class="collapse-item" href="utilities-border.html">Borders</a>
-          <a class="collapse-item" href="utilities-animation.html">Animations</a>
-          <a class="collapse-item" href="utilities-other.html">Other</a>
-        </div>
-      </div>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
@@ -168,7 +153,7 @@
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Best Area</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">Pueblo El Hatillo</div>
+                    <div id="best_area" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-award fa-2x text-gray-300"></i>
@@ -184,7 +169,7 @@
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Worst Area</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">La Boyera</div>
+                    <div id="worst_area" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-frown fa-2x text-gray-300"></i>
@@ -201,7 +186,7 @@
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Improved Area</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">El Cigarral</div>
+                    <div id="improved_area" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-level-up-alt fa-2x text-gray-300"></i>
@@ -217,10 +202,10 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Tankers</div>
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Tanker</div>
                     <div class="row no-gutters align-items-center">
                       <div class="col-auto">
-                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">65%</div>
+                        <div id="tanker" class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
                       </div>
                       <div class="col">
                         <div class="progress progress-sm mr-2">
@@ -257,7 +242,7 @@
               </a>
               <!-- Card Content - Collapse -->
               <div class="collapse show" id="collapseArea">
-                <div class="form-inline justify-content-end m-2 mr-4">
+                <div class="form-inline justify-content-center m-2">
                   <label for="areas">Area: </label>
                   <select class="form-control mx-2" name="areas" id="areas">
                   </select>
@@ -267,6 +252,113 @@
                     <canvas id="myAreaChart"></canvas>
                   </div>
 
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Comments -->
+          <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Accordion -->
+              <a href="#collapseComment" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                aria-expanded="true" aria-controls="collapseComment">
+                <h6 class="m-0 font-weight-bold text-primary">Survey Comments</h6>
+              </a>
+              <!-- Card Body -->
+              <div class="collapse show" id="collapseComment">
+                <div class="card-body">
+                  <div class="pt-4 pb-2" style="overflow-y: scroll; height: 350px;">
+                    {% if page_obj %}
+                    <div id="all-posts">
+                      {% for survey in page_obj %}
+                      <div class="card mt-2">
+                        <div class="card-body">
+                          <div><span class="float-right text-muted"><small>{{survey.date}}</small></span></div>
+                          <h6 class="card-title"><a href="">{{survey.first_name}} {{survey.last_name}}</a>
+                          </h6>
+                          <div id="content-{{ survey.id }}" class="p-2">{{survey.comment}}</div>
+
+                          <div >
+                            {% if user.is_authenticated %}
+                            <a class="like" href="#"><i id="liked-{{ survey.id }}"
+                                class="fa fa-thumbs-up {% if survey.likes.liked %}text-primary{% else %}text-dark{% endif %}"></i></a>
+                            {% else %}
+                            <span><i id="liked-{{ survey.id }}" class="fa fa-thumbs-up text-dark"></i></span>
+                            {% endif %}
+                            <span id="count-{{ survey.id }}">{{ survey.likes.count }}</span>
+                            <div class="float-right row">
+                              <i class="mx-1 fa fa-map-marker-alt" data-toggle="tooltip" data-placement="top" title="{{survey.area}}"></i>
+                              <i class="mx-1 fa fa-faucet c-{{survey.supply}}"></i>
+                              <i class="mx-1 fa fa-hand-holding-water t-{{survey.tanker}}"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+
+                      {% if page_obj.has_other_pages %}
+                      <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                          {% if page_obj.has_previous %}
+                          <li class="page-item"><a class="page-link"
+                              href="?page={{ page_obj.prevoius_page_number }}">Previous</a>
+                          </li>
+                          {% else %}
+                          <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                          {% endif %}
+                          {% for i in page_obj.paginator.page_range %}
+                          {% if page_obj.number == i %}
+                          <li class="page-item active"><span class="page-link">{{ i }} <span
+                                class="sr-only">(current)</span></span>
+                          </li>
+                          {% else %}
+                          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                          {% endif %}
+                          {% endfor %}
+                          {% if page_obj.has_next %}
+                          <li class="page-item"><a class="page-link"
+                              href="?page={{ page_obj.next_page_number }}">Next</a>
+                          </li>
+                          {% else %}
+                          <li class="page-item disabled"><span class="page-link">Next</span></li>
+                          {% endif %}
+                        </ul>
+                      </nav>
+                      {% endif %}
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+
+          <!-- Map -->
+          <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <a href="#collapseMap" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                aria-expanded="true" aria-controls="collapseMap">
+                <h6 class="m-0 font-weight-bold text-primary">Map</h6>
+              </a>
+              <div class="collapse show" id="collapseMap">
+                <div class="form-inline justify-content-center m-2 px-4 ">
+                  <select class="form-control" name="map_range" id="map_range">
+                    <option value="this_week" selected>This Week</option>
+                    <option value="last_week">Last Week</option>
+                    <option value="historic">All the time</option>
+                  </select>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area" style="height: 350px;">
+                    <div id="mapid" style="height: 350px;"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -281,110 +373,25 @@
               </a>
               <!-- Card Body -->
               <div class="collapse show" id="collapseTopTen">
-                <div class="form-inline justify-content-center m-2 mr-4">
-                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <div class="form-inline justify-content-center m-2 px-4 ">
+                  <div id="options" class="btn-group btn-group-toggle m-2" data-toggle="buttons">
                     <label class="btn btn-outline-success active">
-                      <input type="radio" name="options" id="option1" autocomplete="off" checked> Best
+                      <input type="radio" name="options" id="best" autocomplete="off" checked> Best
                     </label>
                     <label class="btn btn-outline-danger">
-                      <input type="radio" name="options" id="option2" autocomplete="off"> Worst
+                      <input type="radio" name="options" id="worst" autocomplete="off"> Worst
                     </label>
                   </div>
+                  <select class="form-control" name="topten" id="topten_range">
+                    <option value="1" selected>This Week</option>
+                    <option value="2">Last Week</option>
+                    <option value="3">All the time</option>
+                  </select>
                 </div>
                 <div class="card-body">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content Row -->
-        <div class="row">
-
-          <!-- Map -->
-          <div class="col-xl-8 col-lg-7">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Map</h6>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-area" style="height: 350px;">
-                  <div id="mapid" style="height: 350px;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Comments -->
-          <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Comments</h6>
-                <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                    aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="chart-area">
+                    <canvas id="myBarChart"></canvas>
                   </div>
-                </div>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-pie pt-4 pb-2">
-                  <canvas id="myPieChart"></canvas>
-                </div>
-                <div class="mt-4 text-center small">
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-primary"></i> Direct
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-success"></i> Social
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-info"></i> Referral
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <!-- Bar Chart -->
-          <div class="col-xl-12 col-lg-12">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Supply Time Overview</h6>
-                <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                    aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="myBarChart"></canvas>
                 </div>
               </div>
             </div>
@@ -431,6 +438,24 @@
   </div>
 </div>
 
+{% if survey_limit %}
+<!-- Survey limit Modal-->
+<div class="modal fade" id="surveyLimitModal" tabindex="-1" role="dialog" aria-labelledby="surveyLimitModal"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Survey limit reached</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Looks like you already filled out this week's survey, please try again next week </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
 
 
 <!-- Page level plugins -->
@@ -441,8 +466,7 @@
 </script>
 
 <!-- Page level custom scripts -->
-<script src="{% static 'citizen/js/chart-bar.js' %}"></script>
-<script src="{% static 'citizen/js/chart-area.js' %}"></script>
+<script src="{% static 'citizen/js/charts.js' %}"></script>
 <script src="{% static 'citizen/js/map.js' %}"></script>
 <script src="{% static 'citizen/js/dashboard.js' %}"></script>
 {% endblock %}

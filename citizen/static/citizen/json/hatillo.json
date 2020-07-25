@@ -4,9 +4,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 1,
+          "supply_time": 0,
           "name": "Cerro Verde",
-          "id": 1
+          "id": 5
         },
         "geometry": {
           "type": "Polygon",
@@ -235,9 +235,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 1,
+          "supply_time": 0,
           "name": "Los Naranjos",
-          "id": 2
+          "id": 8
         },
         "geometry": {
           "type": "Polygon",
@@ -422,9 +422,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 2,
+          "supply_time": 0,
           "name": "Alto Hatillo",
-          "id": 3
+          "id": 9
         },
         "geometry": {
           "type": "Polygon",
@@ -553,9 +553,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 2,
+          "supply_time": 0,
           "name": "Cementerio del Este",
-          "id": 4
+          "id": 10
         },
         "geometry": {
           "type": "Polygon",
@@ -784,9 +784,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 2,
-          "name": "La Boyera",
-          "id": 6
+          "supply_time": 0,
+          "name": "Los Geranios",
+          "id": 1
         },
         "geometry": {
           "type": "Polygon",
@@ -891,9 +891,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 3,
-          "name": "Pueblo El Hatilo",
-          "id": 7
+          "supply_time": 0,
+          "name": "Pueblo El Hatillo",
+          "id": 2
         },
         "geometry": {
           "type": "Polygon",
@@ -966,9 +966,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 3,
+          "supply_time": 0,
           "name": "Oripoto",
-          "id": 10
+          "id": 7
         },
         "geometry": {
           "type": "Polygon",
@@ -1097,9 +1097,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 1,
+          "supply_time": 0,
           "name": "La Unión",
-          "id": 11
+          "id": 6
         },
         "geometry": {
           "type": "Polygon",
@@ -1172,9 +1172,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 1,
+          "supply_time": 0,
           "name": "La Lagunita",
-          "id": 8
+          "id": 4
         },
         "geometry": {
           "type": "Polygon",
@@ -1279,9 +1279,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 2,
-          "name": "Cacerio Los Naranjos",
-          "id": 5
+          "supply_time": 0,
+          "name": "Caserío Los Naranjos",
+          "id": 11
         },
         "geometry": {
           "type": "Polygon",
@@ -1410,9 +1410,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 2,
+          "supply_time": 0,
           "name": "Las Matas",
-          "id": 13
+          "id": 14
         },
         "geometry": {
           "type": "Polygon",
@@ -1537,9 +1537,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 2,
+          "supply_time": 0,
           "name": "Las Lomas",
-          "id": 14
+          "id": 15
         },
         "geometry": {
           "type": "Polygon",
@@ -1620,9 +1620,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 1,
+          "supply_time": 0,
           "name": "Sabaneta",
-          "id": 15
+          "id": 16
         },
         "geometry": {
           "type": "Polygon",
@@ -1667,9 +1667,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 3,
+          "supply_time": 0,
           "name": "Margarita",
-          "id": 12
+          "id": 13
         },
         "geometry": {
           "type": "Polygon",
@@ -1722,9 +1722,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 2,
+          "supply_time": 0,
           "name": "Caicaguana",
-          "id": 9
+          "id": 12
         },
         "geometry": {
           "type": "Polygon",
@@ -1821,9 +1821,9 @@
       {
         "type": "Feature",
         "properties": {
-          "supply_time": 2,
+          "supply_time": 0,
           "name": "La Montaña",
-          "id": 16
+          "id": 17
         },
         "geometry": {
           "type": "Polygon",

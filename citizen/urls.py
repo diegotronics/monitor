@@ -13,4 +13,6 @@ urlpatterns = [
     path("api/municipality", views.municipality, name="municipality"),
     path("api/municipality/<int:id>", views.area, name="area"),
     path("api/byweek/<int:id>", views.byweek, name="byweek"),
+    path("api/topten/<int:id>", views.topten, name="topten"),
+    path("api/likes", views.likes, name="likes"),
 ]
