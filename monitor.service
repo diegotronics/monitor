@@ -1,4 +1,4 @@
-[Unit]Description=Monitor Citizen
+[Unit]Description=monitor
 After=syslog.target
 [Service]Type=simple
 User=diego
