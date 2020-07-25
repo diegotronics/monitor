@@ -1,9 +1,10 @@
-[Unit]Description=monitor
-After=syslog.target
-[Service]Type=simple
-User=diego
-WorkingDirectory=/home/diego
-ExecStart=python3 /home/diego/monitor/manage.py runserver 0.0.0.0:80
-StandardOutput=syslog
-StandardError=syslog
-[Install]WantedBy=multi-user.target
+[Unit]
+Description=monitor
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /home/diego/monitor/manage.py runserver 0.0.0.0:80
+
+[Install]
+WantedBy=multi-user.target
