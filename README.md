@@ -15,11 +15,6 @@ The **survey** consists of two questions and one textarea for optional comments:
     2) No
 3. **Comments (optional)**
 
-
-# Justification
-
-I consider that this project meets all the expectations raised in the assignment of the final project, as it is a web platform that implements most of the concepts and techniques taught in the course. 
-
 The whole application is based on the Django framework, which allowed managing user authentication, database models, http requests, static files and the html page rendering.
 
 On the other hand, user interface was designed with bootstrap, along with additional javascript libraries for page and graphics interaction.
