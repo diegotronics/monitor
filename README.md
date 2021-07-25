@@ -15,13 +15,11 @@ The **survey** consists of two questions and one textarea for optional comments:
     2) No
 3. **Comments (optional)**
 
-The whole application is based on the Django framework, which allowed managing user authentication, database models, http requests, static files and the html page rendering.
-
-On the other hand, user interface was designed with bootstrap, along with additional javascript libraries for page and graphics interaction.
-
-The difference between this web application and previous projects is that this application combines and manages data to generate a dashboard, create the graphics and, above all, give useful information to the community. With the potential to include more features in the future with respect to other services such as gas, sanitation and electricity.
-
 # Structure
+
+The whole application is based on the Django framework, which allowed managing user authentication, database models, http requests, static files and the html page rendering. On the other hand, user interface was designed with bootstrap, along with additional javascript libraries for page and graphics interaction.
+
+This project combines and manages data to generate a dashboard, create the graphics and, above all, give useful information to the community. With the potential to include more features in the future regarding to other type of services such as gas, sanitation and electricity.
 
 The web platform is structured as follows
 - **Index:** This is a landing page that allows unregistered users to make the decision whether to view the dashboard directly or take the survey.
