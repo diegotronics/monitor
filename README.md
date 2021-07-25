@@ -26,10 +26,6 @@ On the other hand, user interface was designed with bootstrap, along with additi
 
 The difference between this web application and previous projects is that this application combines and manages data to generate a dashboard, create the graphics and, above all, give useful information to the community. With the potential to include more features in the future with respect to other services such as gas, sanitation and electricity.
 
-- [x] Your web application must be sufficiently distinct from the other projects in this course (and, in addition, may not be based on the old CS50W Pizza project), and more complex than those.
-- [x] Your web application must utilize Django (including at least one model) on the back-end and JavaScript on the front-end.
-- [x] Your web application must be mobile-responsive.
-
 # Structure
 
 The web platform is structured as follows
